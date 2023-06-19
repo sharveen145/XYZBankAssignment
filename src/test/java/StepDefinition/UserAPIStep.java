@@ -5,6 +5,7 @@ import Utilities.base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
@@ -25,7 +26,7 @@ public class UserAPIStep extends base {
     public void createNewUser(String base, String name) {
         fName = name;
         String payload = "{\n" +
-                "  \"id\": " +id +",\n" +
+                "  \"id\":"+id +",\n" +
                 "  \"username\": \""+userName+"\",\n" +
                 "  \"firstName\": \"" +fName+ "\",\n" +
                 "  \"lastName\": \"\",\n" +
@@ -36,9 +37,8 @@ public class UserAPIStep extends base {
         basePath = base;
 
         given().baseUri(baseURi).
-                contentType("application/json").body(payload).
+                contentType(ContentType.JSON).accept(ContentType.JSON).body(payload).
                 when().post(basePath).
-                then().log().all().extract().response().
                 then().assertThat().statusCode(200);
     }
 
