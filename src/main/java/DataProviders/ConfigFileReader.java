@@ -79,4 +79,10 @@ public class ConfigFileReader {
                 throw new RuntimeException("Environment type key value in configuration file is not matched: " + environmentName);
         }
     }
+
+    public String getBaseURi() {
+        String baseUrl = properties.getProperty("BaseURi");
+        if(baseUrl != null) return baseUrl;
+        else throw new RuntimeException("base_Url not specified in the Configuration.properties file.");
+    }
 }
