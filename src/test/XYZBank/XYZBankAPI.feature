@@ -3,12 +3,11 @@ Feature: XYZ Bank API Assignments
   @Question3
 Scenario Outline: CRUD function for user API
   Given i perform POST operation for "/user" as <user>
-  And i perform GET for newly created user
-#  Then i should see the user name as <user>
-#  And I perform PUT operation for newly created user
-#  Then I should see the user name as <updateUser>
-#  And I should perform DELETE for newly created user
-#  Then I should verify the newly created user is deleted
+  Then i perform GET and verify newly created user
+  And i perform PUT operation for newly created user with <updateUser>
+  Then i perform GET and verify the updated first name as <updateUser>
+  And i should perform DELETE for newly created user
+  Then i perform GET and should verify the newly created user is deleted
   Examples:
     | user  | updateUser |
     | Shan  | Sharveen   |
