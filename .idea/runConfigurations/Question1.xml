@@ -6,7 +6,7 @@
     <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
     <module name="XYZBankAssignment" />
     <option name="NAME_FILTER" value="^Add\, verify and delete the added customers as a .*$" />
-    <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Add\, verify and delete the added customers as a .*$&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="--plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --tags &quot;@Question1&quot;" />
     <shortenClasspath name="NONE" />
     <option name="SUGGESTED_NAME" value="Scenario: Add, verify and delete the added customers as a &lt;role&gt;" />
     <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />

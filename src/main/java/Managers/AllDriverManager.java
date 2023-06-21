@@ -1,8 +1,8 @@
 package Managers;
 
 import DataProviders.ConfigFileReader;
-import Enums.DriverType;
-import Enums.EnvironmentType;
+import Managers.Enums.DriverType;
+import Managers.Enums.EnvironmentType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,11 +13,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
-
-import static java.awt.desktop.UserSessionEvent.Reason.REMOTE;
-import static org.openqa.selenium.remote.Browser.*;
 
 public class AllDriverManager extends ConfigFileReader {
 

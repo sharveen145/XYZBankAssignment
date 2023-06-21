@@ -1,4 +1,4 @@
-package Enums;
+package Managers.Enums;
 
 public enum DriverType {
     FIREFOX,

@@ -1,7 +1,7 @@
 package DataProviders;
 
-import Enums.DriverType;
-import Enums.EnvironmentType;
+import Managers.Enums.DriverType;
+import Managers.Enums.EnvironmentType;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

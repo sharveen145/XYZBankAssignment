@@ -1,12 +1,11 @@
 package Pages;
 
-import Managers.FileReaderManager;
 import Utilities.base;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static Utilities.randomGenerator.generateRandomNumber;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 public class UserAPIPage extends base {
 
@@ -30,7 +29,7 @@ public class UserAPIPage extends base {
     }
 
     public static Response getUser(String userName, String url){
-        Response response = given().pathParam("username", userName).
+        Response response = given().queryParam("username", userName).
                 when().get(url);
         return response;
     }
@@ -48,14 +47,14 @@ public class UserAPIPage extends base {
                 "  \"userStatus\": 1\n" + "}";
 
         Response response =  given().contentType(ContentType.JSON).
-                accept(ContentType.JSON).pathParam("username",userName).body(payload).
+                accept(ContentType.JSON).queryParam("username",userName).body(payload).
                 when().put(url);
 
         return response;
     }
 
     public static Response deleteUser(String userName, String url){
-        Response response = given().pathParam("username", userName).
+        Response response = given().queryParam("username", userName).
                 when().delete(url);
         return response;
     }
