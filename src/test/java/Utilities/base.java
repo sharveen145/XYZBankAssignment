@@ -1,17 +1,18 @@
 package Utilities;
 
 import Managers.AllDriverManager;
+import org.apache.hc.core5.util.Asserts;
+import org.asynchttpclient.util.Assertions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 import java.io.File;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.logging.Logger;
+
 
 public class base extends AllDriverManager {
 
@@ -41,7 +42,7 @@ public class base extends AllDriverManager {
 
     public void elementScreenShot(WebElement ele){
         File src = ele.getScreenshotAs(OutputType.FILE);
-        File destination = new File(System.getProperty("user.dir")+"screenshots/"+ele+".png");
+        File destination = new File(System.getProperty("user.dir")+"resources/screenshots/"+ele+".png");
     }
 
     public void scrollToBottom(){
@@ -62,5 +63,6 @@ public class base extends AllDriverManager {
     public void dragAndDrop(WebElement element, WebElement target){
         (new Actions(getDriver())).dragAndDrop(element, target).perform();
     }
+
 
 }
