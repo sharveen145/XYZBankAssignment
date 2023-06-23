@@ -2,6 +2,7 @@ package Utilities;
 
 import Managers.AllDriverManager;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -56,7 +57,10 @@ public class base extends AllDriverManager {
     public void scrollUp(){
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight), 0");
+    }
 
+    public void dragAndDrop(WebElement element, WebElement target){
+        (new Actions(getDriver())).dragAndDrop(element, target).perform();
     }
 
 }

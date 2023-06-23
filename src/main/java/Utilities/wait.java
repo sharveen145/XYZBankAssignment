@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
-public class wait {
+public class wait extends base{
 
 
     private static void until(WebDriver webDriver, Long timeOutInSeconds, Function<WebDriver, Boolean> waitCondition) {
