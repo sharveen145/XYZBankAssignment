@@ -1,14 +1,13 @@
 package Utilities;
 
 import Managers.AllDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.logging.Logger;
@@ -25,8 +24,6 @@ public class base extends AllDriverManager {
         return ele;
     }
 
-    private static java.lang.String String;
-//    public static Logger logger = Logger.getLogger(String);
     protected static final Logger logger = Logger.getLogger(base.class.getName());
 
     public void fluentwait(By ele){
@@ -39,6 +36,27 @@ public class base extends AllDriverManager {
 
     public void launchApplication(){
         getDriver().get(getUrl());
+    }
+
+    public void elementScreenShot(WebElement ele){
+        File src = ele.getScreenshotAs(OutputType.FILE);
+        File destination = new File(System.getProperty("user.dir")+"screenshots/"+ele+".png");
+    }
+
+    public void scrollToBottom(){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public void scrollTillElement(WebElement ele){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].scrollIntoView();", ele);
+    }
+
+    public void scrollUp(){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight), 0");
+
     }
 
 }
